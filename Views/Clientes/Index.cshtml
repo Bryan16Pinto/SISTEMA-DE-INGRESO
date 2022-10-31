@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SistemaEgresosIngresos.Models.Entities.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow">
+                <div class="card-body mt-3">
+                    <h2 class="text-uppercase text-center">GESTIÓN DE CLIENTES</h2>
+                    <p class="text-end">
+                        <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-square"></i> Nuevo Cliente</a>
+                    </p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Identificación</th>
+                                <th>Nombres</th>
+                                <th>Teléfono</th>
+                                <th>Correo</th>
+                                <th>Tipo de Cliente</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Any())
+                            {
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NumeroDocumento)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Telefono)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Correo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TipoCliente)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm" data-bs-toggle="tooltip" data-bs-title="Editar"><i class="bi bi-pencil-square"></i></a>
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-title="Eliminar"><i class="bi bi-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <th class="text-center" colspan="6">No existen registros en la base de datos</th>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

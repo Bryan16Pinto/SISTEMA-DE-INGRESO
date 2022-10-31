@@ -1,0 +1,58 @@
+﻿@model SistemaEgresosIngresos.Models.Entities.Cliente
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div class="section">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title text-center" style="font-size: 28px">¿Está seguro eliminar el cliente?</h1>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Identificación</th>
+                                <th>Nombres</th>
+                                <th>Teléfono</th>
+                                <th>Correo</th>
+                                <th>Tipo de Cliente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.NumeroDocumento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.Telefono)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.Correo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.TipoCliente)
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="text-center mt-3">
+                            <a asp-action="Index" class="btn btn-secondary">Volver</a>
+                            <button type="submit" class="btn btn-danger">Crear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
